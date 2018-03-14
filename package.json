@@ -4,7 +4,7 @@
   "description": "Skeleton for a Humany chat plugin.",
   "main": "dist/index.js",
   "scripts": {
-    "start-dev": "nodemon ./src/server/server.js --watch ./dist",
+    "start-dev": "npm run build-dev && nodemon ./src/server/server.js --watch ./dist",
     "build": ".\\node_modules\\.bin\\webpack --mode production",
     "build-dev": ".\\node_modules\\.bin\\webpack --mode development"
   },
