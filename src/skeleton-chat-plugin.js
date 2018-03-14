@@ -5,10 +5,15 @@ import MockChatClient from './mock-chat-client';
 export default class SkeletonChatPlugin extends Plugin {
   constructor(container, settings) {
     super(container);
-    const chatPlatformSettings = { adapterClientName: 'skeleton.chat', texts: settings.texts };
+    const chatPlatformSettings = {
+      adapterClientName: 'skeleton.chat',
+      texts: settings.texts,
+      disableAutoMessage: true,
+    };
     this.chatPlatform = new ChatPlatform(container, chatPlatformSettings);
     this.widget.events.subscribe('widget:connect', () => this.chatPlatform.initialize());
     this.myChatClient = new MockChatClient();
+    this.pendingMessages = {};
   }
 
   initialize() {
@@ -16,29 +21,39 @@ export default class SkeletonChatPlugin extends Plugin {
     let queueMessage;
 
     this.chatPlatform.events.subscribe('chat:connect', (event, data) => {
-      this.chatPlatform.chat.createInfoMessage({ text: 'Connecting to chat...' });
+      queueMessage = this.chatPlatform.chat.createInfoMessage({ html: 'Connecting to chat...' });
       this.chatPlatform.chat.set({ state: 'queuing' });
       this.chatPlatform.commit();
       this.myChatClient.connect(data);
     });
+
     this.chatPlatform.events.subscribe('chat:disconnect', (event, data) => {
+      agentTyping = undefined;
+      queueMessage = undefined;
       this.myChatClient.disconnect();
     });
+
     this.chatPlatform.events.subscribe('chat:user-submit', (event, data) => {
-      this.myChatClient.submit(data.text);
+      const message = this.chatPlatform.user.createMessage({ state: 'pending', html: data.text });
+      this.pendingMessages[message.id] = message;
+      this.chatPlatform.commit();
+      this.myChatClient.submit(message);
     });
-    this.chatPlatform.events.subscribe('chat:user-typing', (event, data) => {
-      console.log(event.type, data);
+
+    this.myChatClient.events.subscribe('message-confirmation', (event, data) => {
+      this.pendingMessages[data.message.id].set({ state: 'sent' });
+      this.chatPlatform.commit();
+      this.pendingMessages[data.message.id] = undefined;
     });
 
     this.myChatClient.events.subscribe('queue-update', (event, data) => {
       this.chatPlatform.chat.set({ state: 'queuing' });
       if (queueMessage) {
         queueMessage.set({ html: this.chatPlatform.texts.get('positionInQueue', { position: data.position }) });
+        this.chatPlatform.commit();
       } else {
         queueMessage = this.chatPlatform.chat.createInfoMessage({ html: this.chatPlatform.texts.get('positionInQueue', { position: data.position }) });
       }
-      this.chatPlatform.commit();
     });
 
     this.myChatClient.events.subscribe('connected', (event, data) => {
@@ -46,10 +61,10 @@ export default class SkeletonChatPlugin extends Plugin {
       this.chatPlatform.chat.set({ state: 'ready' });
       if (queueMessage) {
         queueMessage.set({ html: 'Chat successfully connected!' });
+        this.chatPlatform.commit();
       } else {
         queueMessage = this.chatPlatform.chat.createInfoMessage({ html: 'Chat successfully connected!' });
       }
-      this.chatPlatform.commit();
     });
 
     this.myChatClient.events.subscribe('chat-ended', (event, data) => {

@@ -6,13 +6,12 @@ export default class MockChatClient {
     this.events = new EventManager(this);
     this.agent = { name: 'Bob' };
     this.timeouts = [];
-    this.responseIndex = 0;
     this.responses = [
-      'Ok, what kind of car do you have?',
-      'Ok, is it an automatic or manual car?',
-      'Ok, <a target="_blank" href="https://www.google.com">here</a> you can find all the information you need!',
-      "Alright, don't hesitate contacting us again, if you have any else you want help with.",
-      'Goodbye!',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula.',
+      'In turpis magna, posuere id est eget, elementum porttitor sem. Mauris viverra.',
+      'Nulla orci mi, efficitur sed tincidunt vitae.',
+      'Donec turpis nisi, gravida at sapien non, sollicitudin eleifend tortor. In nec mi eget mauris semper vehicula ut sed eros. Nunc non tellus mauris. Praesent.',
+      'Nam vitae egestas leo.'
     ];
     this.connect = this.connect.bind(this);
     this.submit = this.submit.bind(this);
@@ -29,36 +28,26 @@ export default class MockChatClient {
       this.events.dispatch('queue-update', { position: 1 });
     }, 6000));
     this.timeouts.push(setTimeout(() => {
+      this.connected = true;
       this.events.dispatch('connected', { agent: this.agent });
       this.events.dispatch('agent-typing', {});
-    }, 10000));
+    }, 7000));
     this.timeouts.push(setTimeout(() => {
       this.events.dispatch('agent-message', { text: 'Hi, my name is Bob! What can I assist you with?' });
-    }, 15000));
+    }, 10000));
   }
-  submit(text) {
-    if (this.responseIndex !== this.responses.length - 1) {
+  submit(message) {
+    this.timeouts.push(setTimeout(() => {
+      this.events.dispatch('message-confirmation', { message });
       this.timeouts.push(setTimeout(() => {
         this.events.dispatch('agent-typing', {});
-      }, 2000));
-      this.timeouts.push(setTimeout(() => {
-        this.events.dispatch('agent-message', { text: this.responses[this.responseIndex] });
-        ++this.responseIndex;
-      }, 6000));
-    } else {
-      this.timeouts.push(setTimeout(() => {
-        this.events.dispatch('agent-typing', {});
-      }, 1000));
-      this.timeouts.push(() => {
-        this.events.dispatch('agent-message', { text: this.responses[this.responseIndex] });
-      }, 5000);
-      this.timeouts.push(() => {
-        this.disconnect();
-      }, 7000);
-    }
+        this.timeouts.push(setTimeout(() => {
+          this.events.dispatch('agent-message', { text: this.responses[Math.floor(Math.random() * this.responses.length)] });
+        }, Math.floor(Math.random() * 3000)));
+      }, Math.floor(Math.random() * 3000)));
+    }, Math.floor(Math.random() * 3000)));
   }
   disconnect() {
-    this.responseIndex = 0;
     this.events.dispatch('chat-ended', {});
     this.timeouts.forEach(t => clearTimeout(t));
   }
