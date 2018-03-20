@@ -20,10 +20,10 @@ export default class MockChatClient {
   connect(data) {
     this.timeouts.push(setTimeout(() => {
       this.events.dispatch('queue-update', { position: 3 });
-    }, 1000));
+    }, 2000));
     this.timeouts.push(setTimeout(() => {
       this.events.dispatch('queue-update', { position: 2 });
-    }, 3000));
+    }, 4000));
     this.timeouts.push(setTimeout(() => {
       this.events.dispatch('queue-update', { position: 1 });
     }, 6000));
