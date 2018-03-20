@@ -11,7 +11,6 @@ export default class SkeletonChatPlugin extends Plugin {
       disableAutoMessage: true,
     };
     this.chatPlatform = new ChatPlatform(container, chatPlatformSettings);
-    this.widget.events.subscribe('widget:connect', () => this.chatPlatform.initialize());
     this.myChatClient = new MockChatClient();
     this.pendingMessages = {};
   }
@@ -22,7 +21,7 @@ export default class SkeletonChatPlugin extends Plugin {
 
     this.chatPlatform.events.subscribe('chat:connect', (event, data) => {
       queueMessage = this.chatPlatform.chat.createInfoMessage({ html: 'Connecting to chat...' });
-      this.chatPlatform.chat.set({ state: 'queuing' });
+      this.chatPlatform.chat.set({ state: 'connecting' });
       this.chatPlatform.commit();
       this.myChatClient.connect(data);
     });
