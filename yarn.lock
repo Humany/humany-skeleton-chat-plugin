@@ -435,27 +435,28 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@humany/widget-chat@file:.yalc/@humany/widget-chat":
-  version "1.0.0-beta.5-906d415f"
+"@humany/widget-chat@^1.0.0-beta.7":
+  version "1.0.0-beta.7"
+  resolved "https://registry.yarnpkg.com/@humany/widget-chat/-/widget-chat-1.0.0-beta.7.tgz#4ccf19ac71dde88f61babd729d1fe2c7e5197643"
   dependencies:
-    "@humany/widget-core" "^1.0.0-beta.5"
-    "@humany/widget-ui" "^1.0.0-beta.5"
+    "@humany/widget-core" "^1.0.0-beta.7"
+    "@humany/widget-ui" "^1.0.0-beta.7"
     "@webprovisions/platform" "^1.0.0-alpha.9"
     prop-types "^15.6.0"
     react "^15.6.1"
     react-dom "^15.6.1"
 
-"@humany/widget-core@^1.0.0-beta.5":
-  version "1.0.0-beta.5"
-  resolved "https://registry.yarnpkg.com/@humany/widget-core/-/widget-core-1.0.0-beta.5.tgz#38f1a5716d3b3a365f9448bc4c9f27c2276256bb"
+"@humany/widget-core@^1.0.0-beta.7":
+  version "1.0.0-beta.7"
+  resolved "https://registry.yarnpkg.com/@humany/widget-core/-/widget-core-1.0.0-beta.7.tgz#18a9a71d87cd40a228227c80451ab61fed1ba8ea"
   dependencies:
     jquery-param "^0.2.0"
 
-"@humany/widget-ui@^1.0.0-beta.5":
-  version "1.0.0-beta.5"
-  resolved "https://registry.yarnpkg.com/@humany/widget-ui/-/widget-ui-1.0.0-beta.5.tgz#61ae423acf59ab37b6660f87e8729b2c28acdba3"
+"@humany/widget-ui@^1.0.0-beta.7":
+  version "1.0.0-beta.7"
+  resolved "https://registry.yarnpkg.com/@humany/widget-ui/-/widget-ui-1.0.0-beta.7.tgz#199d13bd2a8c125fee4731447f6e283aad4a35a8"
   dependencies:
-    "@humany/widget-core" "^1.0.0-beta.5"
+    "@humany/widget-core" "^1.0.0-beta.7"
     "@webprovisions/platform" "^1.0.0-alpha.9"
     htmr "^0.4.4"
     prop-types "^15.6.0"
