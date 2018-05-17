@@ -9,7 +9,7 @@
     "build-dev": ".\\node_modules\\.bin\\webpack --mode development"
   },
   "dependencies": {
-    "@humany/widget-chat": "^1.0.0-beta.7",
+    "@humany/widget-chat": "^1.0.0-beta.8",
     "@webprovisions/platform": "^1.0.0-alpha.9",
     "babel-regenerator-runtime": "^6.5.0",
     "express": "^4.16.2"
