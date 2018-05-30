@@ -435,29 +435,29 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@humany/widget-chat@^1.0.0-beta.7":
-  version "1.0.0-beta.7"
-  resolved "https://registry.yarnpkg.com/@humany/widget-chat/-/widget-chat-1.0.0-beta.7.tgz#4ccf19ac71dde88f61babd729d1fe2c7e5197643"
+"@humany/widget-chat@^1.0.0-beta.9":
+  version "1.0.0-beta.9"
+  resolved "https://registry.yarnpkg.com/@humany/widget-chat/-/widget-chat-1.0.0-beta.9.tgz#fdcc3675cdcd5fb4d2731f4ebff61084acb36f3b"
   dependencies:
-    "@humany/widget-core" "^1.0.0-beta.7"
-    "@humany/widget-ui" "^1.0.0-beta.7"
-    "@webprovisions/platform" "^1.0.0-alpha.9"
+    "@humany/widget-core" "^1.0.0-beta.9"
+    "@humany/widget-ui" "^1.0.0-beta.9"
+    "@webprovisions/platform" "^1.0.0-alpha.15"
     prop-types "^15.6.0"
     react "^15.6.1"
     react-dom "^15.6.1"
 
-"@humany/widget-core@^1.0.0-beta.7":
-  version "1.0.0-beta.7"
-  resolved "https://registry.yarnpkg.com/@humany/widget-core/-/widget-core-1.0.0-beta.7.tgz#18a9a71d87cd40a228227c80451ab61fed1ba8ea"
+"@humany/widget-core@^1.0.0-beta.9":
+  version "1.0.0-beta.9"
+  resolved "https://registry.yarnpkg.com/@humany/widget-core/-/widget-core-1.0.0-beta.9.tgz#4040b513e4e882e6cf0bf0f7ad63e96519d79217"
   dependencies:
     jquery-param "^0.2.0"
 
-"@humany/widget-ui@^1.0.0-beta.7":
-  version "1.0.0-beta.7"
-  resolved "https://registry.yarnpkg.com/@humany/widget-ui/-/widget-ui-1.0.0-beta.7.tgz#199d13bd2a8c125fee4731447f6e283aad4a35a8"
+"@humany/widget-ui@^1.0.0-beta.9":
+  version "1.0.0-beta.9"
+  resolved "https://registry.yarnpkg.com/@humany/widget-ui/-/widget-ui-1.0.0-beta.9.tgz#0af007b977be8227072c3060cbdf73d3cec950e0"
   dependencies:
-    "@humany/widget-core" "^1.0.0-beta.7"
-    "@webprovisions/platform" "^1.0.0-alpha.9"
+    "@humany/widget-core" "^1.0.0-beta.9"
+    "@webprovisions/platform" "^1.0.0-alpha.15"
     htmr "^0.4.4"
     prop-types "^15.6.0"
     react "^15.6.1"
@@ -467,9 +467,9 @@
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.7.0.tgz#9a06f4f137ee84d7df0460c1fdb1135ffa6c50fd"
 
-"@webprovisions/platform@^1.0.0-alpha.9":
-  version "1.0.0-alpha.9"
-  resolved "https://registry.yarnpkg.com/@webprovisions/platform/-/platform-1.0.0-alpha.9.tgz#bc51f5ec97f5382040574459152700ebbf33996f"
+"@webprovisions/platform@^1.0.0-alpha.15":
+  version "1.0.0-alpha.15"
+  resolved "https://registry.yarnpkg.com/@webprovisions/platform/-/platform-1.0.0-alpha.15.tgz#ee97754bf0f695321aa9f301f17f0487f3272da1"
 
 abbrev@1:
   version "1.1.1"

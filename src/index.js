@@ -10,7 +10,7 @@ humany.configure(settings.implementationName, (config) => {
   // Register the plugin in the types registry for the current environment:
   config.types.register('@my/skeleton-chat-plugin', SkeletonChatPlugin);
   // Enable the plugin for the specified widget:
-  config(settings.widgetName).usePlugin('@my/skeleton-chat-plugin', {
+  config(settings.widgetName).plugin('@my/skeleton-chat-plugin', {
     texts: {
       chatEnded: 'Chat session ended.',
       positionInQueue: 'Position in queue: {{position}}.',
