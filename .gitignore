@@ -2,3 +2,4 @@ node_modules
 .vs
 dist
 yarn-error.log
+.yalc

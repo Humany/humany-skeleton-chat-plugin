@@ -1,0 +1,24 @@
+{
+  "version": "v1",
+  "packages": {
+    "@humany/widget-chat": {
+      "signature": "f18d11be5fc6ae5006f132f256cf74c5",
+      "file": true,
+      "replaced": "^1.0.0-beta.10"
+    },
+    "@humany/widget-adapters": {
+      "signature": "f33398ebaaadb86101f99fd91b2af4ab",
+      "file": true
+    },
+    "@humany/widget-forms": {
+      "signature": "36b6283200a573f26b8b33f372ed350b",
+      "file": true,
+      "replaced": "^1.0.0-beta.13"
+    },
+    "@humany/widget-data": {
+      "signature": "a64d936f90c1909ad6a3eb17fc554d77",
+      "file": true,
+      "replaced": "^1.0.0-beta.13"
+    }
+  }
+}

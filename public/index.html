@@ -13,18 +13,21 @@
     </style>
     <!-- Start Humany - implementation: "webprovisions" [webprovisions] -->
     <script>
-        (function (n, t, i, r, u, f, e) {
-            for (var o, s = /[?&]{1}(humany[^=]*)=([^&#]*)/g; o = s.exec(n.location.search);)i += (i.indexOf("?") > -1 ? "&" : "?") + o[1] + "=" + o[2];
-            f = t.createElement(u); f.async = !0; f.src = i; e = t.getElementsByTagName(u)[0]; e.parentNode.insertBefore(f, e); n[r] = n[r] || { _c: [], configure: function (t) { n[r]._c.push(arguments) } }
+        (function (a, b, c, d, e, f, g) {
+            for (var h, i = /[?&]{1}(humany[^=]*)=([^&#]*)/g; h = i.exec(a.location.search);)c += (-1 < c.indexOf("?") ? "&" : "?") + h[1] + "=" + h[2];
+            f = b.createElement(e), f.async = !0, f.src = c, g = b.getElementsByTagName(e)[0], g.parentNode.insertBefore(f, g), a[d] = a[d] || {
+                _c: [],
+                configure: function () { a[d]._c.push(arguments) }
+            }; var j = d.toLowerCase(); a[j] = a[j] || { _c: [], configure: function () { a[j]._c.push(arguments) } }
         })
-            (window, document, "//webprovisions-labs.humany.cc/webprovisions/embed.js", "Humany", "script");
+            (window, document, "//development.humany.local/webprovisions/embed.js", "Humany", "script");
     </script>
     <!-- End Humany -->
 </head>
 
 <body>
     <div>
-        <a href="//webprovisions-labs.humany.cc/skeleton-chat-bot"></a>
+        <a href="//development.humany.local/skeleton-chat-bot"></a>
         <h2>Humany Skeleton Chat plugin</h2>
         <ol>
             <li>Open the Bot by clicking the icon in lower right</li>
@@ -33,13 +36,15 @@
         </ol>
         <div>
             The dummy chat (
-            <code>./src/mock-chat-client.js</code>) will now start emulating a real chat. Use this template to author a customized plugin for your chat service.
+            <code>./src/mock-chat-client.js</code>) will now start emulating a real chat. Use this template to author a
+            customized plugin for your chat service.
             Happy coding!
         </div>
         <div style="padding-top: 50px">
             Best wishes,
-            <br/>The
-            <img style="vertical-align: middle" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAAAYCAYAAACGLcGvAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAxJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6Qjc2ODQzN0FERThGMTFFMzlCNUY5OUY0NTU3NTQ5ODMiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6Qjc2ODQzNzlERThGMTFFMzlCNUY5OUY0NTU3NTQ5ODMiIHhtcDpDcmVhdG9yVG9vbD0iSWxsdXN0cmF0b3IiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0idXVpZDo1Y2IzODVhYy0zOTgxLTExZGEtYTRkYi0wMDBkOTMzZjdhNDIiIHN0UmVmOmRvY3VtZW50SUQ9InV1aWQ6ZjIzMWFmMjktMmU5NC0xMWRhLTgxZDYtMDAwZDkzM2Y3YTQyIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+aihR2AAABKhJREFUeNrsWGmIVmUUvjM2zUxJy2g0MX0ykvVFRraItqOlLSClRdAPK1qgMiEqTH+1EFQ/WmwxiyJrsqGyiVTM9mXKNpIkpZJ2isymwhp1lm+Wnheel05P595vvpnp3z3wcN/9vfd5zznvObeqUGialSTJa8AvwLHAtiSXYUk10MJyI3BPTsnIyBxr6ofklIyMzFz+JzIHc0qGL3tIfSefk4EmoA/4HvjWmXsCUAReAn7N2KMWOAY4EtgX+BHYAnxuxuzJyy/sWwI2AZvLHO7hRPD1O4DvuO6ujDl78T0OAw7gvC+4X7cZNwmYC7zOPk/OBfYHWoFej8xA4CfAcdK+ATgf2M765cBjLL8HnJKy4WlAG7Cf0/cxD+Qg7tko/VuBs0mSlTBuNTAtZc+rgYed9ouAR3m4Kn8B5wDv8F0/AhqoTEVHmeYDT7E8j8T+x8yLDpFBTgK+BA5kfarpO5oap3Ip8EYKkQnJ6KAGNjr9RR5inWmbTEuZlqF9y4E7pO1ORi21KXP2Ad6m1pZIZFS2W53xi025kHUBBTNZAbwgZhZIucIZXy8RQdTw5dL2GbBSXEIDTSWhNoQP6jf9QWuvM/U2ISSY10bga9lrCTCT5Yny8dEqgmb9IO1L+f3rTNuZdA9RTiTpUV7MIvN04DKa9YXSd7Izr9pZZ6Z89LvAFJraXGfPR4DjOe8a6ZtlTKsofTNoJYcC90rfqYYMK7cA04GLgWbgU/n2IA+YtuBbLxA3EiW4gcfTyGynhkR5TnyWR34/F03kQrGy1pQ/AD6U/ttNeY2zXuIc7A1cK8r1dEVRpvM5TuY9I/UnpX4U8Ar9aJRLjL+eL0ryUxo5JecjBpw2S1aXiQKi1Eh9k+NKovwB/CYRRZep9/A5QdZ41XmvdlMeZ7QnSifws8zZLfXxxlr0YGbI2IcqDdq9MVVl5owZwoFYze7P6B8wIZbewCrbKnhHu7/3beslpFpCNxXlG+D50ciAeiSOrJf+vjLza8rEpTXOx6nVNDhzjxjFBOQthkpRwq0+29SfHWk6WWVM25r8hCF8qEYANnEYk6FR0aV0SPtCqU9krFjuEGsr+N6V8h41xjUsHS0y9TfdtaZ8lhObaejSmUGmElpnLiYrIXFYxhgxJA3vD4GosNbeFVjRauc+SHhBxcO9CngiZGPVFRBoy21ORtBNktbLBbXWieeyTLBP/FgsP+ikrQuAP3nxNKYoyqCsXaqAzEDY/U77XXxeyXg63PYvV0tO6p1Ct9zcUdNucnydBu9h/I3Omp0ypldu113OniWJ8RLngAYloFfr65K9PbfSK/VVUt9MK9Bflg1ho0XmhG52XvI+U7Y5723AecBXTnjRQ41sltgvyjJTbpELrYc5dOIE0CErO8P8I9BgfKFDwptGG1scMjeatlbGjlb0PmgVPqK5r6gqFJpibtrnkGJTyYGUcCQ650nMFraT4P4y7mMs/eWOlP6DqUm/p/RPYYC9m2beYVLZOoYu9sKrZ0yb5Uu9vTYwhYwW1SzrxEttZyQzF19mS3KwJv4hGmpAnss/Mkfqd1ea3eTy71+P9p9Ce07m8OVpU15cbvDfAgwAaHgGtKIb4XAAAAAASUVORK5CYII="> dev team
+            <br />The
+            <img style="vertical-align: middle" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAAAYCAYAAACGLcGvAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAxJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6Qjc2ODQzN0FERThGMTFFMzlCNUY5OUY0NTU3NTQ5ODMiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6Qjc2ODQzNzlERThGMTFFMzlCNUY5OUY0NTU3NTQ5ODMiIHhtcDpDcmVhdG9yVG9vbD0iSWxsdXN0cmF0b3IiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0idXVpZDo1Y2IzODVhYy0zOTgxLTExZGEtYTRkYi0wMDBkOTMzZjdhNDIiIHN0UmVmOmRvY3VtZW50SUQ9InV1aWQ6ZjIzMWFmMjktMmU5NC0xMWRhLTgxZDYtMDAwZDkzM2Y3YTQyIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+aihR2AAABKhJREFUeNrsWGmIVmUUvjM2zUxJy2g0MX0ykvVFRraItqOlLSClRdAPK1qgMiEqTH+1EFQ/WmwxiyJrsqGyiVTM9mXKNpIkpZJ2isymwhp1lm+Wnheel05P595vvpnp3z3wcN/9vfd5zznvObeqUGialSTJa8AvwLHAtiSXYUk10MJyI3BPTsnIyBxr6ofklIyMzFz+JzIHc0qGL3tIfSefk4EmoA/4HvjWmXsCUAReAn7N2KMWOAY4EtgX+BHYAnxuxuzJyy/sWwI2AZvLHO7hRPD1O4DvuO6ujDl78T0OAw7gvC+4X7cZNwmYC7zOPk/OBfYHWoFej8xA4CfAcdK+ATgf2M765cBjLL8HnJKy4WlAG7Cf0/cxD+Qg7tko/VuBs0mSlTBuNTAtZc+rgYed9ouAR3m4Kn8B5wDv8F0/AhqoTEVHmeYDT7E8j8T+x8yLDpFBTgK+BA5kfarpO5oap3Ip8EYKkQnJ6KAGNjr9RR5inWmbTEuZlqF9y4E7pO1ORi21KXP2Ad6m1pZIZFS2W53xi025kHUBBTNZAbwgZhZIucIZXy8RQdTw5dL2GbBSXEIDTSWhNoQP6jf9QWuvM/U2ISSY10bga9lrCTCT5Yny8dEqgmb9IO1L+f3rTNuZdA9RTiTpUV7MIvN04DKa9YXSd7Izr9pZZ6Z89LvAFJraXGfPR4DjOe8a6ZtlTKsofTNoJYcC90rfqYYMK7cA04GLgWbgU/n2IA+YtuBbLxA3EiW4gcfTyGynhkR5TnyWR34/F03kQrGy1pQ/AD6U/ttNeY2zXuIc7A1cK8r1dEVRpvM5TuY9I/UnpX4U8Ar9aJRLjL+eL0ryUxo5JecjBpw2S1aXiQKi1Eh9k+NKovwB/CYRRZep9/A5QdZ41XmvdlMeZ7QnSifws8zZLfXxxlr0YGbI2IcqDdq9MVVl5owZwoFYze7P6B8wIZbewCrbKnhHu7/3beslpFpCNxXlG+D50ciAeiSOrJf+vjLza8rEpTXOx6nVNDhzjxjFBOQthkpRwq0+29SfHWk6WWVM25r8hCF8qEYANnEYk6FR0aV0SPtCqU9krFjuEGsr+N6V8h41xjUsHS0y9TfdtaZ8lhObaejSmUGmElpnLiYrIXFYxhgxJA3vD4GosNbeFVjRauc+SHhBxcO9CngiZGPVFRBoy21ORtBNktbLBbXWieeyTLBP/FgsP+ikrQuAP3nxNKYoyqCsXaqAzEDY/U77XXxeyXg63PYvV0tO6p1Ct9zcUdNucnydBu9h/I3Omp0ypldu113OniWJ8RLngAYloFfr65K9PbfSK/VVUt9MK9Bflg1ho0XmhG52XvI+U7Y5723AecBXTnjRQ41sltgvyjJTbpELrYc5dOIE0CErO8P8I9BgfKFDwptGG1scMjeatlbGjlb0PmgVPqK5r6gqFJpibtrnkGJTyYGUcCQ650nMFraT4P4y7mMs/eWOlP6DqUm/p/RPYYC9m2beYVLZOoYu9sKrZ0yb5Uu9vTYwhYwW1SzrxEttZyQzF19mS3KwJv4hGmpAnss/Mkfqd1ea3eTy71+P9p9Ce07m8OVpU15cbvDfAgwAaHgGtKIb4XAAAAAASUVORK5CYII=">
+            dev team
         </div>
     </div>
 
