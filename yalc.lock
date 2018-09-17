@@ -2,7 +2,7 @@
   "version": "v1",
   "packages": {
     "@humany/widget-chat": {
-      "signature": "f18d11be5fc6ae5006f132f256cf74c5",
+      "signature": "bf8f91e637c9f9bd33c08e52df8f9ed4",
       "file": true,
       "replaced": "^1.0.0-beta.10"
     },

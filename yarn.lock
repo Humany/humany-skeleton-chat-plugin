@@ -444,7 +444,7 @@
     "@webprovisions/platform" "^1.0.0-beta.2"
 
 "@humany/widget-adapters@file:.yalc/@humany/widget-adapters":
-  version "1.0.0-beta.13-aac9c9b1"
+  version "1.0.0-beta.13-f33398eb"
   dependencies:
     "@humany/utils" "^1.0.0-beta.13"
     "@humany/widget-core" "^1.0.0-beta.13"
@@ -455,7 +455,7 @@
     react-dom "^15.6.1"
 
 "@humany/widget-chat@file:.yalc/@humany/widget-chat":
-  version "1.0.0-beta.12-f61c853b"
+  version "1.0.0-beta.12-bf8f91e6"
   dependencies:
     "@humany/widget-data" "^1.0.0-beta.13"
     "@webprovisions/platform" "^1.0.0-beta.2"
@@ -473,9 +473,14 @@
     "@humany/widget-core" "^1.0.0-beta.13"
     "@webprovisions/platform" "^1.0.0-beta.2"
 
-"@humany/widget-forms@^1.0.0-beta.13":
-  version "1.0.0-beta.13"
-  resolved "https://registry.yarnpkg.com/@humany/widget-forms/-/widget-forms-1.0.0-beta.13.tgz#e93f550938a1c4f1d49deeb5133d3a1b45a61ed5"
+"@humany/widget-data@file:.yalc/@humany/widget-data":
+  version "1.0.0-beta.13-a64d936f"
+  dependencies:
+    "@humany/widget-core" "^1.0.0-beta.13"
+    "@webprovisions/platform" "^1.0.0-beta.2"
+
+"@humany/widget-forms@file:.yalc/@humany/widget-forms":
+  version "1.0.0-beta.13-36b62832"
 
 "@humany/widget-routing@^1.0.0-beta.13":
   version "1.0.0-beta.13"
@@ -951,13 +956,6 @@ babel-plugin-check-es2015-constants@^6.22.0:
   resolved "https://registry.yarnpkg.com/babel-plugin-check-es2015-constants/-/babel-plugin-check-es2015-constants-6.22.0.tgz#35157b101426fd2ffd3da3f75c7d1e91835bbf8a"
   dependencies:
     babel-runtime "^6.22.0"
-
-babel-plugin-dynamic-import-webpack@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/babel-plugin-dynamic-import-webpack/-/babel-plugin-dynamic-import-webpack-1.0.2.tgz#cb83435833e073f1600c0188a95edacfdc07c256"
-  dependencies:
-    babel-plugin-syntax-dynamic-import "^6.18.0"
-    babel-template "^6.26.0"
 
 babel-plugin-syntax-async-functions@^6.8.0:
   version "6.13.0"
