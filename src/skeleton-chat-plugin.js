@@ -2,40 +2,54 @@ import { Plugin } from '@webprovisions/platform';
 import { ChatPlatform } from '@humany/widget-chat';
 import MockChatClient from './mock-chat-client';
 
+
 export default class SkeletonChatPlugin extends Plugin {
   constructor(container, settings) {
     super(container);
     this.myChatClient = new MockChatClient();
-    this.chatPlatform = new ChatPlatform(
-      container,
-      {
-        adapterClientName: 'skeleton.chat',
-        disableAutoMessage: true,
-        enableFiles: true,
-        texts: settings.texts
-      }
-    );
+
+    const chatPlatformSettings = {
+      adapterClientName: 'skeleton.chat',
+      disableAutoMessage: true,
+      enableFiles: true,
+      texts: settings.texts
+    }
+    this.chatPlatform = new ChatPlatform(container, chatPlatformSettings);
+
     this.pendingMessages = {};
     this.agentTyping = undefined;
     this.queueMessage = undefined;
 
-    this.chatPlatform.events.subscribe('chat:connect', (event, data) => {
+    this.chatPlatform.events.subscribe('chat:connect', (event, { formData }) => {
       this.queueMessage = this.chatPlatform.chat.createInfoMessage({ html: 'Connecting to chat...' });
       this.chatPlatform.chat.set({ state: 'connecting' });
       this.chatPlatform.commit();
-      this.myChatClient.connect(data);
+
+      const name = `${formData['first-name']} ${formData['last-name']}`
+      this.myChatClient.connect(name);
+
+      this.container
+        .getAsync('storage')
+        .then((storage) => {
+          storage.setItem('chat-in-session', true);
+        })
     });
 
     this.chatPlatform.events.subscribe('chat:disconnect', (event, data) => {
       this.agentTyping = undefined;
       this.queueMessage = undefined;
       this.myChatClient.disconnect();
+
+      this.container
+        .getAsync('storage')
+        .then((storage) => {
+          storage.removeItem('chat-in-session');
+        })
     });
 
     this.chatPlatform.events.subscribe('chat:user-typing', (event, data) => {
       console.log('user typing:', data);
     });
-
 
     this.chatPlatform.events.subscribe('chat:user-submit', (event, data) => {
       data.files && console.log('FileList: ', data.files);
@@ -66,10 +80,25 @@ export default class SkeletonChatPlugin extends Plugin {
       this.chatPlatform.chat.set({ state: 'ready' });
       if (this.queueMessage) {
         this.queueMessage.set({ html: 'Chat successfully connected!' });
-        this.chatPlatform.commit();
       } else {
         this.queueMessage = this.chatPlatform.chat.createInfoMessage({ html: 'Chat successfully connected!' });
       }
+      this.chatPlatform.commit();
+    });
+
+    this.myChatClient.events.subscribe('reconnected', (event, data) => {
+      this.chatPlatform
+        .reconnect()
+        .then((connected) => {
+          if (connected) {
+            this.chatPlatform.agent.set(data.agent)
+            this.chatPlatform.chat.set({ state: 'ready' });
+            this.chatPlatform.chat.createInfoMessage({ html: 'Chat successfully reconnected!' });
+            this.chatPlatform.commit();
+          } else {
+            console.warn('Something went wrong when reconnecting to Chat Platform');
+          }
+        });
     });
 
     this.myChatClient.events.subscribe('chat-ended', (event, data) => {
@@ -80,7 +109,7 @@ export default class SkeletonChatPlugin extends Plugin {
 
     this.myChatClient.events.subscribe('agent-typing', (event, data) => {
       this.chatPlatform.agent.set({ state: 'typing' });
-      this.agentTyping = this.chatPlatform.agent.createMessage({ html: 'Agent is typing...' });
+      this.agentTyping = this.chatPlatform.chat.createInfoMessage({ html: 'Agent is typing...' });
       this.chatPlatform.commit();
     });
 
@@ -90,8 +119,21 @@ export default class SkeletonChatPlugin extends Plugin {
         this.chatPlatform.commit();
       }
       this.chatPlatform.agent.set({ state: 'idling' });
-      this.chatPlatform.agent.createMessage({ html: data.text });
+      this.chatPlatform.agent.createMessage({ html: data.html });
       this.chatPlatform.commit();
     });
+
+    const widgetStartedEventSub
+      = this.widget.events.subscribe('widget:started', () => {
+        this.container
+          .getAsync('storage')
+          .then((storage) => {
+            const chatInSession = storage.getItem('chat-in-session');
+            if (chatInSession) {
+              widgetStartedEventSub();
+              this.myChatClient.reconnect();
+            }
+          })
+      });
   }
 }

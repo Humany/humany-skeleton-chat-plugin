@@ -16,8 +16,9 @@ export default class MockChatClient {
     this.connect = this.connect.bind(this);
     this.submit = this.submit.bind(this);
     this.disconnect = this.disconnect.bind(this);
+    this.reconnect = this.reconnect.bind(this);
   }
-  connect(data) {
+  connect(name) {
     this.timeouts.push(setTimeout(() => {
       this.events.dispatch('queue-update', { position: 3 });
     }, 2000));
@@ -33,7 +34,7 @@ export default class MockChatClient {
       this.events.dispatch('agent-typing', {});
     }, 7000));
     this.timeouts.push(setTimeout(() => {
-      this.events.dispatch('agent-message', { text: 'Hi, my name is Bob! What can I assist you with?' });
+      this.events.dispatch('agent-message', { html: `<p>Hi ${name}!</p><p>My name is Bob, the agent. What can I assist you with?</p>` });
     }, 10000));
   }
   submit(message) {
@@ -42,7 +43,7 @@ export default class MockChatClient {
       this.timeouts.push(setTimeout(() => {
         this.events.dispatch('agent-typing', {});
         this.timeouts.push(setTimeout(() => {
-          this.events.dispatch('agent-message', { text: this.responses[Math.floor(Math.random() * this.responses.length)] });
+          this.events.dispatch('agent-message', { html: `<p>${this.responses[Math.floor(Math.random() * this.responses.length)]}</p>` });
         }, Math.floor(Math.random() * 3000)));
       }, Math.floor(Math.random() * 3000)));
     }, Math.floor(Math.random() * 3000)));
@@ -50,5 +51,9 @@ export default class MockChatClient {
   disconnect() {
     this.events.dispatch('chat-ended', {});
     this.timeouts.forEach(t => clearTimeout(t));
+  }
+  reconnect() {
+    this.connected = true;
+    this.events.dispatch('reconnected', { agent: this.agent });
   }
 }
