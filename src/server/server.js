@@ -5,7 +5,7 @@ const opn = require('opn');
 const app = express();
 
 // Port to listen on
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 // Serve static files
 app.use(express.static(path.resolve('dist')));
