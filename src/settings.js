@@ -1,4 +1,4 @@
 export default {
-  implementationName: 'webprovisions',
+  implementationName: 'skeleton-chat',
   widgetName: 'skeleton-chat-bot',
 };

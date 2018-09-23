@@ -15,14 +15,6 @@ module.exports = {
       template: __dirname + '/public/index.html',
     }),
   ],
-  resolve: {
-    alias: {
-      '@humany/widget-chat': path.resolve(__dirname, './.yalc/@humany/widget-chat'),
-      '@humany/widget-adapters': path.resolve(__dirname, './.yalc/@humany/widget-adapters'),
-      '@humany/widget-forms': path.resolve(__dirname, './.yalc/@humany/widget-forms'),
-      '@humany/widget-data': path.resolve(__dirname, './.yalc/@humany/widget-data'),
-    }
-  },
   module: {
     rules: [
       {

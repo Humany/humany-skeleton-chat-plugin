@@ -435,76 +435,76 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@humany/utils@^1.0.0-beta.13":
-  version "1.0.0-beta.13"
-  resolved "https://registry.yarnpkg.com/@humany/utils/-/utils-1.0.0-beta.13.tgz#7222924415a89972bb444d96e1e51e714464cea7"
+"@humany/utils@^1.0.0-beta.14":
+  version "1.0.0-beta.14"
+  resolved "https://registry.yarnpkg.com/@humany/utils/-/utils-1.0.0-beta.14.tgz#3cb5742aa0715c641ccba933bd1ebd40c23af3cb"
   dependencies:
-    "@humany/widget-core" "^1.0.0-beta.13"
-    "@humany/widget-data" "^1.0.0-beta.13"
-    "@webprovisions/platform" "^1.0.0-beta.2"
+    "@humany/widget-core" "^1.0.0-beta.14"
+    "@humany/widget-data" "^1.0.0-beta.14"
+    "@webprovisions/platform" "^1.0.0-beta.3"
 
-"@humany/widget-adapters@file:.yalc/@humany/widget-adapters":
-  version "1.0.0-beta.13-f33398eb"
+"@humany/widget-adapters@^1.0.0-beta.14":
+  version "1.0.0-beta.14"
+  resolved "https://registry.yarnpkg.com/@humany/widget-adapters/-/widget-adapters-1.0.0-beta.14.tgz#aaa0116df3f12614b7713e13c95c3823a277639e"
   dependencies:
-    "@humany/utils" "^1.0.0-beta.13"
-    "@humany/widget-core" "^1.0.0-beta.13"
-    "@humany/widget-ui" "^1.0.0-beta.13"
-    "@webprovisions/platform" "^1.0.0-beta.2"
+    "@humany/utils" "^1.0.0-beta.14"
+    "@humany/widget-core" "^1.0.0-beta.14"
+    "@humany/widget-ui" "^1.0.0-beta.14"
+    "@webprovisions/platform" "^1.0.0-beta.3"
     prop-types "^15.6.0"
     react "^15.6.1"
     react-dom "^15.6.1"
 
-"@humany/widget-chat@file:.yalc/@humany/widget-chat":
-  version "1.0.0-beta.12-bf8f91e6"
+"@humany/widget-chat@^1.0.0-beta.10":
+  version "1.0.0-beta.14"
+  resolved "https://registry.yarnpkg.com/@humany/widget-chat/-/widget-chat-1.0.0-beta.14.tgz#6c80a75337e520bbd886cf36bd06318cda18ca3e"
   dependencies:
-    "@humany/widget-data" "^1.0.0-beta.13"
-    "@webprovisions/platform" "^1.0.0-beta.2"
+    "@humany/widget-adapters" "^1.0.0-beta.14"
+    "@humany/widget-data" "^1.0.0-beta.14"
+    "@webprovisions/platform" "^1.0.0-beta.3"
 
-"@humany/widget-core@^1.0.0-beta.13":
-  version "1.0.0-beta.13"
-  resolved "https://registry.yarnpkg.com/@humany/widget-core/-/widget-core-1.0.0-beta.13.tgz#28f85558ce454515839b9015bfafdec585f346f7"
+"@humany/widget-core@^1.0.0-beta.14":
+  version "1.0.0-beta.14"
+  resolved "https://registry.yarnpkg.com/@humany/widget-core/-/widget-core-1.0.0-beta.14.tgz#703eb877646a2264ec624b3df3790cec45319c92"
   dependencies:
     jquery-param "^0.2.0"
 
-"@humany/widget-data@^1.0.0-beta.13":
-  version "1.0.0-beta.13"
-  resolved "https://registry.yarnpkg.com/@humany/widget-data/-/widget-data-1.0.0-beta.13.tgz#c04228b620d9ffcb2d7b039b6ef50e77ccfb74fe"
+"@humany/widget-data@^1.0.0-beta.14":
+  version "1.0.0-beta.14"
+  resolved "https://registry.yarnpkg.com/@humany/widget-data/-/widget-data-1.0.0-beta.14.tgz#bc482270b6f1173c4de4aa2f539b243aea05ef6f"
   dependencies:
-    "@humany/widget-core" "^1.0.0-beta.13"
-    "@webprovisions/platform" "^1.0.0-beta.2"
+    "@humany/widget-core" "^1.0.0-beta.14"
+    "@webprovisions/platform" "^1.0.0-beta.3"
 
-"@humany/widget-data@file:.yalc/@humany/widget-data":
-  version "1.0.0-beta.13-a64d936f"
+"@humany/widget-forms@^1.0.0-beta.14":
+  version "1.0.0-beta.14"
+  resolved "https://registry.yarnpkg.com/@humany/widget-forms/-/widget-forms-1.0.0-beta.14.tgz#88d916ec9336a314841e43a0923c30d849e4a324"
   dependencies:
-    "@humany/widget-core" "^1.0.0-beta.13"
-    "@webprovisions/platform" "^1.0.0-beta.2"
+    "@humany/utils" "^1.0.0-beta.14"
 
-"@humany/widget-forms@file:.yalc/@humany/widget-forms":
-  version "1.0.0-beta.13-36b62832"
-
-"@humany/widget-routing@^1.0.0-beta.13":
-  version "1.0.0-beta.13"
-  resolved "https://registry.yarnpkg.com/@humany/widget-routing/-/widget-routing-1.0.0-beta.13.tgz#a3d398f3490a7c4f91fdea5726323501da91d23c"
+"@humany/widget-routing@^1.0.0-beta.14":
+  version "1.0.0-beta.14"
+  resolved "https://registry.yarnpkg.com/@humany/widget-routing/-/widget-routing-1.0.0-beta.14.tgz#0139ae8f1f98ac933abb002ca8d511750125065a"
   dependencies:
-    "@humany/widget-data" "^1.0.0-beta.13"
+    "@humany/widget-data" "^1.0.0-beta.14"
     "@types/prop-types" "^15.5.2"
     "@types/react" "^16.3.5"
     "@types/react-dom" "^16.0.4"
     "@types/react-router" "^4.0.28"
-    "@webprovisions/platform" "^1.0.0-beta.2"
+    "@webprovisions/platform" "^1.0.0-beta.3"
     history "4.7.2"
     prop-types "^15.6.0"
     react "^15.6.1"
     react-router-dom "^4.2.2"
 
-"@humany/widget-ui@^1.0.0-beta.13":
-  version "1.0.0-beta.13"
-  resolved "https://registry.yarnpkg.com/@humany/widget-ui/-/widget-ui-1.0.0-beta.13.tgz#84eb46c94d36e6893499c6d393d7f591d40685bd"
+"@humany/widget-ui@^1.0.0-beta.14":
+  version "1.0.0-beta.14"
+  resolved "https://registry.yarnpkg.com/@humany/widget-ui/-/widget-ui-1.0.0-beta.14.tgz#c251a99d34ac7124e9ac03639934151a6592a12c"
   dependencies:
-    "@humany/widget-core" "^1.0.0-beta.13"
-    "@humany/widget-data" "^1.0.0-beta.13"
-    "@humany/widget-routing" "^1.0.0-beta.13"
-    "@webprovisions/platform" "^1.0.0-beta.2"
+    "@humany/widget-core" "^1.0.0-beta.14"
+    "@humany/widget-data" "^1.0.0-beta.14"
+    "@humany/widget-routing" "^1.0.0-beta.14"
+    "@webprovisions/platform" "^1.0.0-beta.3"
     htmr "^0.4.4"
     prop-types "^15.6.0"
     react "^15.6.1"
@@ -522,8 +522,8 @@
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.0.tgz#2fac51050c68f7d6f96c5aafc631132522f4aa3f"
 
 "@types/node@*":
-  version "10.9.4"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.9.4.tgz#0f4cb2dc7c1de6096055357f70179043c33e9897"
+  version "10.10.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.10.3.tgz#09c75a4ad84d6a3d286790bdd9489a4f8ee9906c"
 
 "@types/prop-types@*", "@types/prop-types@^15.5.2":
   version "15.5.5"
@@ -552,9 +552,9 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@webprovisions/platform@^1.0.0-beta.2":
-  version "1.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@webprovisions/platform/-/platform-1.0.0-beta.2.tgz#e5a8bb430902fe6b341f6077e853873068934bfc"
+"@webprovisions/platform@^1.0.0-beta.2", "@webprovisions/platform@^1.0.0-beta.3":
+  version "1.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/@webprovisions/platform/-/platform-1.0.0-beta.3.tgz#115493a54b61fe4857688323f9a7670c3472aae0"
 
 abbrev@1:
   version "1.1.1"
@@ -3856,13 +3856,7 @@ log-update@^1.0.2:
     ansi-escapes "^1.0.0"
     cli-cursor "^1.0.2"
 
-loose-envify@^1.0.0:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.3.1.tgz#d1a8ad33fa9ce0e713d65fdd0ac8b748d478c848"
-  dependencies:
-    js-tokens "^3.0.0"
-
-loose-envify@^1.1.0, loose-envify@^1.2.0, loose-envify@^1.3.1:
+loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.2.0, loose-envify@^1.3.1:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   dependencies:
@@ -4884,7 +4878,7 @@ read-pkg@^3.0.0:
     normalize-package-data "^2.3.2"
     path-type "^3.0.0"
 
-"readable-stream@1 || 2", readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.4, readable-stream@^2.0.6, readable-stream@^2.1.4, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.3, readable-stream@^2.3.5:
+"readable-stream@1 || 2", readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.4, readable-stream@^2.0.6, readable-stream@^2.1.4, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.3, readable-stream@^2.3.5:
   version "2.3.5"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.5.tgz#b4f85003a938cbb6ecbce2a124fb1012bd1a838d"
   dependencies:
@@ -4904,6 +4898,18 @@ readable-stream@1.0:
     inherits "~2.0.1"
     isarray "0.0.1"
     string_decoder "~0.10.x"
+
+readable-stream@^2.0.2:
+  version "2.3.6"
+  resolved "http://registry.npmjs.org/readable-stream/-/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
+  dependencies:
+    core-util-is "~1.0.0"
+    inherits "~2.0.3"
+    isarray "~1.0.0"
+    process-nextick-args "~2.0.0"
+    safe-buffer "~5.1.1"
+    string_decoder "~1.1.1"
+    util-deprecate "~1.0.1"
 
 readdirp@^2.0.0:
   version "2.1.0"
@@ -5207,9 +5213,13 @@ rxjs@^5.4.2, rxjs@^5.5.2:
   dependencies:
     symbol-observable "1.0.1"
 
-safe-buffer@5.1.1, safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
+safe-buffer@5.1.1, safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.1.tgz#893312af69b2123def71f57889001671eeb2c853"
+
+safe-buffer@~5.1.0, safe-buffer@~5.1.1:
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
 
 safe-regex@^1.1.0:
   version "1.1.0"
@@ -5564,6 +5574,12 @@ string_decoder@~0.10.x:
 string_decoder@~1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.0.3.tgz#0fc67d7c141825de94282dd536bec6b9bce860ab"
+  dependencies:
+    safe-buffer "~5.1.0"
+
+string_decoder@~1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.1.1.tgz#9cf1611ba62685d7030ae9e4ba34149c3af03fc8"
   dependencies:
     safe-buffer "~5.1.0"
 

@@ -20,9 +20,11 @@ export default class SkeletonChatPlugin extends Plugin {
     this.agentTyping = undefined;
     this.queueMessage = undefined;
 
-    this.chatPlatform.events.subscribe('chat:connect', (event, { formData }) => {
+    this.chatPlatform.events.subscribe('chat:connect', (event, { formData, settings }) => {
       this.queueMessage = this.chatPlatform.chat.createInfoMessage({ html: 'Connecting to chat...' });
+      const { avatar } = settings;
       this.chatPlatform.chat.set({ state: 'connecting' });
+      this.chatPlatform.agent.set({ avatar });
       this.chatPlatform.commit();
 
       const name = `${formData['first-name']} ${formData['last-name']}`
@@ -32,6 +34,7 @@ export default class SkeletonChatPlugin extends Plugin {
         .getAsync('storage')
         .then((storage) => {
           storage.setItem('chat-in-session', true);
+          storage.setItem('chat-agent-avatar', avatar);
         })
     });
 
@@ -44,6 +47,7 @@ export default class SkeletonChatPlugin extends Plugin {
         .getAsync('storage')
         .then((storage) => {
           storage.removeItem('chat-in-session');
+          storage.removeItem('chat-agent-avatar');
         })
     });
 
@@ -95,6 +99,15 @@ export default class SkeletonChatPlugin extends Plugin {
             this.chatPlatform.chat.set({ state: 'ready' });
             this.chatPlatform.chat.createInfoMessage({ html: 'Chat successfully reconnected!' });
             this.chatPlatform.commit();
+            this.container
+              .getAsync('storage')
+              .then((storage) => {
+                const avatar = storage.getItem('chat-agent-avatar');
+                if (avatar) {
+                  this.chatPlatform.agent.set({ avatar });
+                  this.chatPlatform.commit();
+                }
+              })
           } else {
             console.warn('Something went wrong when reconnecting to Chat Platform');
           }
