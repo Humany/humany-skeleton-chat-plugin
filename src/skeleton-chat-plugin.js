@@ -1,5 +1,6 @@
-import { Plugin } from '@webprovisions/platform';
 import { ChatPlatform } from '@humany/widget-chat';
+import { Plugin } from '@webprovisions/platform';
+
 import MockChatClient from './mock-chat-client';
 
 
@@ -27,7 +28,7 @@ export default class SkeletonChatPlugin extends Plugin {
       this.chatPlatform.agent.set({ avatar });
       this.chatPlatform.commit();
 
-      const name = `${formData['first-name']} ${formData['last-name']}`
+      const name = formData && `${formData['first-name']} ${formData['last-name']}`
       this.myChatClient.connect(name);
 
       this.container

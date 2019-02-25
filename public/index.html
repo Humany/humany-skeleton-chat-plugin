@@ -2,54 +2,115 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Skeleton Plugin</title>
-    <style>
-        body {
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        }
-    </style>
-    <!-- Start Humany - implementation: "webprovisions" [webprovisions] -->
-    <script>
-        (function (a, b, c, d, e, f, g) {
-            for (var h, i = /[?&]{1}(humany[^=]*)=([^&#]*)/g; h = i.exec(a.location.search);)c += (-1 < c.indexOf("?") ? "&" : "?") + h[1] + "=" + h[2];
-            f = b.createElement(e), f.async = !0, f.src = c, g = b.getElementsByTagName(e)[0], g.parentNode.insertBefore(f, g), a[d] = a[d] || {
-                _c: [],
-                configure: function () { a[d]._c.push(arguments) }
-            }; var j = d.toLowerCase(); a[j] = a[j] || { _c: [], configure: function () { a[j]._c.push(arguments) } }
-        })
-            (window, document, "//webprovisions-labs.humany.net/skeleton-chat/embed.js", "Humany", "script");
-    </script>
-    <!-- End Humany -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Humany - Skeleton Plugin</title>
+  <!-- favicon -->
+  <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlApw1AAAC3FBMVEUAA
+  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATP81jAAAA83RSTlMABhAZHRwVCgENNHyyy9nf3dO/lEQSE
+  2/B7P3zeRhU+vvFVwSD8O+BEaGYp/6ZB5CFVfJhI9Irep0FKNzqPGirA6bpLyZ2TmLnKWn0PfdCZvhGR/lJZWRLTCEkJSAXVp/Azdf
+  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">
+  <style>
+    body {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+  </style>
+  <!-- Start Humany - implementation: "webprovisions" [webprovisions] -->
+  <script>
+    (function (a, b, c, d, e, f, g) {
+      for (var h, i = /[?&]{1}(humany[^=]*)=([^&#]*)/g; h = i.exec(a.location.search);)c += (-1 < c.indexOf("?") ? "&" : "?") + h[1] + "=" + h[2];
+      f = b.createElement(e), f.async = !0, f.src = c, g = b.getElementsByTagName(e)[0], g.parentNode.insertBefore(f, g), a[d] = a[d] || {
+        _c: [],
+        configure: function () { a[d]._c.push(arguments) }
+      }; var j = d.toLowerCase(); a[j] = a[j] || { _c: [], configure: function () { a[j]._c.push(arguments) } }
+    })
+      (window, document, "//webprovisions-labs.humany.net/skeleton-chat/embed.js", "Humany", "script");
+  </script>
+  <!-- End Humany -->
 </head>
 
 <body>
+  <!-- humany logo -->
+  <svg style="margin:20px;width:180px;height:50px;border:5px solid #2D3A47;padding:10px 20px;border-radius:10px;"
+    fill="#2D3A47">
+    <path style="transform: scale(1.7);" d="M49.5,7.9c-3.6-2-7.4-0.7-8.8,1.2c-1.4-1.5-3.2-2.3-6.1-2.3c-3.8,0-6.8,2.4-7.1,5.2c0,0.5,0,3.7-0.1,5.9
+                          c0,1-1.4,2.1-2.8,2.1c-1.5,0-2.7-0.8-2.9-2.2c-0.3-2.4,0.1-5.9-0.1-9.2c0-0.7-0.7-1.7-2.1-1.7C18,6.9,17,8.1,17,8.9
+                          c0.1,3.4-0.3,7,0.2,10.1c0.4,2.4,1.9,3.9,4.3,4.5c3.6,0.9,8.6,0.6,10.2-3.4c0.7-1.8,0.2-3.9,0.5-6.4c0.1-0.9,0.3-1.7,1-2.4
+                          c0.9-0.9,2.1-0.8,2.9-0.3c0.5,0.3,1.2,1,1.2,2.5c0,1.7-0.1,5.3,0,8c0,1.3,1.2,2.2,2.2,2.3c1.2,0,2.5-0.6,2.6-2.3
+                          c0.1-2.8-0.2-4.6,0-8.1c0.1-1.2,0.9-2.7,2.7-2.6c1.6,0,2.5,1.3,2.5,2.8c0.1,2.9-0.2,4.7,0.1,8c0.1,1.6,0.8,2.2,2.3,2.2
+                          c1.2,0,2.2-0.8,2.2-2.2c0,0,0.2-6.2,0-9.5C51.8,10.4,50.8,8.7,49.5,7.9z M67.2,8.4c-2-1.6-6.1-1.9-8.6-1c-1.3,0.5-2.8,1.7-3.7,3
+                          c-2.6,4.1-1.7,11,3.1,13c1.9,0.8,5.4,1,7.3-1.2c0.2,0.6,0.6,1.1,1.2,1.4c0.3,0.2,1.7,0.2,2,0.1c0.8-0.4,1.2-1.2,1.2-2l0-7.9
+                          C69.7,11,68.8,9.6,67.2,8.4z M62.5,19.7c-2,0.2-3.9-1.8-3.8-4.5c0.1-2.6,1.5-4.4,3.6-4.4c2.6,0,3.5,2.6,3.5,4.4
+                          C65.8,18.3,63.6,19.6,62.5,19.7z M4.6,8.3c0,0,0-6,0-6C4.6,1.7,3.8,0,2.3,0C0.8,0,0,1.4,0,2.2l0,19.5c0,1.1,1.3,2.1,2.2,2.1
+                          c1.2,0,2.4-1.3,2.4-2.1c0,0,0-8.6,0-8.7c0.1-1.2,1.5-2.4,2.7-2.4c1.6,0,2.9,1.4,2.9,2.3c0,1.4-0.1,3.6,0,8.7c0,0.8,0.8,2.2,2.4,2.2
+                          c1.3,0,2.2-1.2,2.2-2.2l0-9.4c-0.1-1.7-0.7-2.6-1.4-3.4C11.7,6.8,6.8,6.4,4.6,8.3z M102.2,7.3C101.1,6.5,99.5,7,99,7.9l-3.7,8.8
+                          c-1.3-3-2.1-6.1-3.5-8.8c-0.6-1.1-2.3-1.4-3.3-0.5c-0.8,0.7-0.8,1.7-0.4,2.7L93,22l-2.2,5.3c-0.1,0.3-0.2,1.1,0.1,1.5
+                          c0.9,1.5,2.8,1.1,3.1,0.9c1-0.5,3.1-6.3,4.6-9.8c1.5-3.6,3.2-7,4.4-10.8C103.3,8.4,102.8,7.8,102.2,7.3z M86.3,10.2
+                          c-1.2-2.3-3.7-3.3-6.5-3.3c-3.5,0-6.2,1.4-7,3.2c-0.4,0.8-0.5,1.4-0.6,2.4c0,0.1,0,6.6,0,9.6c0,1.1,0.9,1.7,2.2,1.7
+                          c1.2,0,2-0.8,2-1.6c0.2-3.2-0.2-6.1,0.1-9.2c0.1-1.4,1.5-2.3,3-2.3c1.4,0,2.8,0.9,2.9,2.6l0.1,9c0.1,0.8,0.5,1.5,2.1,1.5
+                          c1.5,0,2.3-1.3,2.3-1.9c0.1-2.3,0-9.1,0-9.2C86.8,11.7,86.7,11,86.3,10.2z M103.7,19.2c-1.3,0-2.3,1-2.3,2.3s1,2.3,2.3,2.3
+                          s2.3-1,2.3-2.3S105,19.2,103.7,19.2z"></path>
+  </svg>
+  <div>
+    <a href="//webprovisions-labs.humany.net/skeleton-chat-bot"></a>
+    <h2>Humany Skeleton Chat plugin</h2>
+    <ol>
+      <li>Open the Bot by clicking the icon in lower right</li>
+      <li>Click "Chat"</li>
+      <li>Enter your first- and last name and click "Send"</li>
+    </ol>
     <div>
-        <a href="//webprovisions-labs.humany.net/skeleton-chat-bot"></a>
-        <h2>Humany Skeleton Chat plugin</h2>
-        <ol>
-            <li>Open the Bot by clicking the icon in lower right</li>
-            <li>Click "Chat"</li>
-            <li>Enter your first- and last name and click "Send"</li>
-        </ol>
-        <div>
-            The dummy chat (
-            <code>./src/mock-chat-client.js</code>) will now start emulating a real chat. Use this template to author a
-            customized plugin for your chat service.
-            Happy coding!
-        </div>
-        <div style="padding-top: 50px">
-            Best wishes,
-            <br />The
-            <img style="vertical-align: middle" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAAAYCAYAAACGLcGvAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAxJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6Qjc2ODQzN0FERThGMTFFMzlCNUY5OUY0NTU3NTQ5ODMiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6Qjc2ODQzNzlERThGMTFFMzlCNUY5OUY0NTU3NTQ5ODMiIHhtcDpDcmVhdG9yVG9vbD0iSWxsdXN0cmF0b3IiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0idXVpZDo1Y2IzODVhYy0zOTgxLTExZGEtYTRkYi0wMDBkOTMzZjdhNDIiIHN0UmVmOmRvY3VtZW50SUQ9InV1aWQ6ZjIzMWFmMjktMmU5NC0xMWRhLTgxZDYtMDAwZDkzM2Y3YTQyIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+aihR2AAABKhJREFUeNrsWGmIVmUUvjM2zUxJy2g0MX0ykvVFRraItqOlLSClRdAPK1qgMiEqTH+1EFQ/WmwxiyJrsqGyiVTM9mXKNpIkpZJ2isymwhp1lm+Wnheel05P595vvpnp3z3wcN/9vfd5zznvObeqUGialSTJa8AvwLHAtiSXYUk10MJyI3BPTsnIyBxr6ofklIyMzFz+JzIHc0qGL3tIfSefk4EmoA/4HvjWmXsCUAReAn7N2KMWOAY4EtgX+BHYAnxuxuzJyy/sWwI2AZvLHO7hRPD1O4DvuO6ujDl78T0OAw7gvC+4X7cZNwmYC7zOPk/OBfYHWoFej8xA4CfAcdK+ATgf2M765cBjLL8HnJKy4WlAG7Cf0/cxD+Qg7tko/VuBs0mSlTBuNTAtZc+rgYed9ouAR3m4Kn8B5wDv8F0/AhqoTEVHmeYDT7E8j8T+x8yLDpFBTgK+BA5kfarpO5oap3Ip8EYKkQnJ6KAGNjr9RR5inWmbTEuZlqF9y4E7pO1ORi21KXP2Ad6m1pZIZFS2W53xi025kHUBBTNZAbwgZhZIucIZXy8RQdTw5dL2GbBSXEIDTSWhNoQP6jf9QWuvM/U2ISSY10bga9lrCTCT5Yny8dEqgmb9IO1L+f3rTNuZdA9RTiTpUV7MIvN04DKa9YXSd7Izr9pZZ6Z89LvAFJraXGfPR4DjOe8a6ZtlTKsofTNoJYcC90rfqYYMK7cA04GLgWbgU/n2IA+YtuBbLxA3EiW4gcfTyGynhkR5TnyWR34/F03kQrGy1pQ/AD6U/ttNeY2zXuIc7A1cK8r1dEVRpvM5TuY9I/UnpX4U8Ar9aJRLjL+eL0ryUxo5JecjBpw2S1aXiQKi1Eh9k+NKovwB/CYRRZep9/A5QdZ41XmvdlMeZ7QnSifws8zZLfXxxlr0YGbI2IcqDdq9MVVl5owZwoFYze7P6B8wIZbewCrbKnhHu7/3beslpFpCNxXlG+D50ciAeiSOrJf+vjLza8rEpTXOx6nVNDhzjxjFBOQthkpRwq0+29SfHWk6WWVM25r8hCF8qEYANnEYk6FR0aV0SPtCqU9krFjuEGsr+N6V8h41xjUsHS0y9TfdtaZ8lhObaejSmUGmElpnLiYrIXFYxhgxJA3vD4GosNbeFVjRauc+SHhBxcO9CngiZGPVFRBoy21ORtBNktbLBbXWieeyTLBP/FgsP+ikrQuAP3nxNKYoyqCsXaqAzEDY/U77XXxeyXg63PYvV0tO6p1Ct9zcUdNucnydBu9h/I3Omp0ypldu113OniWJ8RLngAYloFfr65K9PbfSK/VVUt9MK9Bflg1ho0XmhG52XvI+U7Y5723AecBXTnjRQ41sltgvyjJTbpELrYc5dOIE0CErO8P8I9BgfKFDwptGG1scMjeatlbGjlb0PmgVPqK5r6gqFJpibtrnkGJTyYGUcCQ650nMFraT4P4y7mMs/eWOlP6DqUm/p/RPYYC9m2beYVLZOoYu9sKrZ0yb5Uu9vTYwhYwW1SzrxEttZyQzF19mS3KwJv4hGmpAnss/Mkfqd1ea3eTy71+P9p9Ce07m8OVpU15cbvDfAgwAaHgGtKIb4XAAAAAASUVORK5CYII=">
-            dev team
-        </div>
+      The dummy chat (
+      <code>./src/mock-chat-client.js</code>) will now start emulating a real chat. Use this template to author a
+      customized plugin for your chat service.
+      Happy coding!
     </div>
-
-    <!-- This script is injected by HTMLWebpackPlugin when built and saved in the dist directory -->
-    <!-- <script src="/skeleton-chat-plugin.js"></script> -->
+    <div style="padding-top: 50px">
+      Best wishes,
+      <br />The
+      <img style="vertical-align: middle"
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFMAAAAYCAYAAACGLcGvAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAxJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6Qjc2ODQzN0FERThGMTFFMzlCNUY5OUY0NTU3NTQ5ODMiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6Qjc2ODQzNzlERThGMTFFMzlCNUY5OUY0NTU3NTQ5ODMiIHhtcDpDcmVhdG9yVG9vbD0iSWxsdXN0cmF0b3IiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0idXVpZDo1Y2IzODVhYy0zOTgxLTExZGEtYTRkYi0wMDBkOTMzZjdhNDIiIHN0UmVmOmRvY3VtZW50SUQ9InV1aWQ6ZjIzMWFmMjktMmU5NC0xMWRhLTgxZDYtMDAwZDkzM2Y3YTQyIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+aihR2AAABKhJREFUeNrsWGmIVmUUvjM2zUxJy2g0MX0ykvVFRraItqOlLSClRdAPK1qgMiEqTH+1EFQ/WmwxiyJrsqGyiVTM9mXKNpIkpZJ2isymwhp1lm+Wnheel05P595vvpnp3z3wcN/9vfd5zznvObeqUGialSTJa8AvwLHAtiSXYUk10MJyI3BPTsnIyBxr6ofklIyMzFz+JzIHc0qGL3tIfSefk4EmoA/4HvjWmXsCUAReAn7N2KMWOAY4EtgX+BHYAnxuxuzJyy/sWwI2AZvLHO7hRPD1O4DvuO6ujDl78T0OAw7gvC+4X7cZNwmYC7zOPk/OBfYHWoFej8xA4CfAcdK+ATgf2M765cBjLL8HnJKy4WlAG7Cf0/cxD+Qg7tko/VuBs0mSlTBuNTAtZc+rgYed9ouAR3m4Kn8B5wDv8F0/AhqoTEVHmeYDT7E8j8T+x8yLDpFBTgK+BA5kfarpO5oap3Ip8EYKkQnJ6KAGNjr9RR5inWmbTEuZlqF9y4E7pO1ORi21KXP2Ad6m1pZIZFS2W53xi025kHUBBTNZAbwgZhZIucIZXy8RQdTw5dL2GbBSXEIDTSWhNoQP6jf9QWuvM/U2ISSY10bga9lrCTCT5Yny8dEqgmb9IO1L+f3rTNuZdA9RTiTpUV7MIvN04DKa9YXSd7Izr9pZZ6Z89LvAFJraXGfPR4DjOe8a6ZtlTKsofTNoJYcC90rfqYYMK7cA04GLgWbgU/n2IA+YtuBbLxA3EiW4gcfTyGynhkR5TnyWR34/F03kQrGy1pQ/AD6U/ttNeY2zXuIc7A1cK8r1dEVRpvM5TuY9I/UnpX4U8Ar9aJRLjL+eL0ryUxo5JecjBpw2S1aXiQKi1Eh9k+NKovwB/CYRRZep9/A5QdZ41XmvdlMeZ7QnSifws8zZLfXxxlr0YGbI2IcqDdq9MVVl5owZwoFYze7P6B8wIZbewCrbKnhHu7/3beslpFpCNxXlG+D50ciAeiSOrJf+vjLza8rEpTXOx6nVNDhzjxjFBOQthkpRwq0+29SfHWk6WWVM25r8hCF8qEYANnEYk6FR0aV0SPtCqU9krFjuEGsr+N6V8h41xjUsHS0y9TfdtaZ8lhObaejSmUGmElpnLiYrIXFYxhgxJA3vD4GosNbeFVjRauc+SHhBxcO9CngiZGPVFRBoy21ORtBNktbLBbXWieeyTLBP/FgsP+ikrQuAP3nxNKYoyqCsXaqAzEDY/U77XXxeyXg63PYvV0tO6p1Ct9zcUdNucnydBu9h/I3Omp0ypldu113OniWJ8RLngAYloFfr65K9PbfSK/VVUt9MK9Bflg1ho0XmhG52XvI+U7Y5723AecBXTnjRQ41sltgvyjJTbpELrYc5dOIE0CErO8P8I9BgfKFDwptGG1scMjeatlbGjlb0PmgVPqK5r6gqFJpibtrnkGJTyYGUcCQ650nMFraT4P4y7mMs/eWOlP6DqUm/p/RPYYC9m2beYVLZOoYu9sKrZ0yb5Uu9vTYwhYwW1SzrxEttZyQzF19mS3KwJv4hGmpAnss/Mkfqd1ea3eTy71+P9p9Ce07m8OVpU15cbvDfAgwAaHgGtKIb4XAAAAAASUVORK5CYII=">
+      dev team
+    </div>
+  </div>
 </body>
 
 </html>

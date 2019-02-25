@@ -19,7 +19,7 @@ npm run build-dev
 ```
 5. To watch the plugin in action
 ```
-npm run start-dev
+npm run start
 ```
 
 This will launch your browser and redirect you to a simple server where you can see your plugin in action.
@@ -32,7 +32,7 @@ Include the generated bundle (located in the `/dist` folder) after the default H
 <script>
   (function(n,t,i,r,u,f,e){for(var o,s=/[?&]{1}(humany[^=]*)=([^&#]*)/g;o=s.exec(n.location.search);)i+=(i.indexOf("?")>-1?"&":"?")+o[1]+"="+o[2];
   f=t.createElement(u);f.async=!0;f.src=i;e=t.getElementsByTagName(u)[0];e.parentNode.insertBefore(f,e);n[r]=n[r]||{_c:[],configure:function(t){n[r]._c.push(arguments)}}})
-  (window,document,"//webprovisions-labs.humany.cc/webprovisions/embed.js","Humany","script");
+  (window,document,"//webprovisions-labs.humany.net/skeleton-chat/embed.js","Humany","script");
 </script>
 <!-- End Humany -->
 <script src="skeleton-chat-plugin.js"></script>

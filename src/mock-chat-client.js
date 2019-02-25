@@ -34,7 +34,7 @@ export default class MockChatClient {
       this.events.dispatch('agent-typing', {});
     }, 7000));
     this.timeouts.push(setTimeout(() => {
-      this.events.dispatch('agent-message', { html: `<p>Hi ${name}!</p><p>My name is Bob, the agent. What can I assist you with?</p>` });
+      this.events.dispatch('agent-message', { html: `<p>Hi${name ? ` ${name}` : ''}!</p><p>My name is Bob, the agent. What can I assist you with?</p>` });
     }, 10000));
   }
   submit(message) {
