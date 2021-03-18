@@ -15,7 +15,7 @@ openport.find(
       console.log(err);
       return;
     } else {
-      const url = `http://localhost:${port}/`;
+      const url = `https://localhost:${port}/`;
 
       webpackConfig.entry.unshift(
         `webpack-dev-server/client?${url}`,

@@ -4,5 +4,6 @@ module.exports = (function () {
     contentBase: path.resolve(__dirname, '/public'),
     watchContentBase: true,
     hot: true,
+    https: true,
   };
 })();
